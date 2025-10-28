@@ -4,9 +4,9 @@ services:
     container_name: food_waste_db
     restart: unless-stopped
     environment:
-      - POSTGRES_USER:foodsystem
-      - POSTGRES_PASSWORD:foodsystempass
-      - POSTGRES_DB:food_waste
+      - POSTGRES_USER=foodsystem
+      - POSTGRES_PASSWORD=foodsystempass
+      - POSTGRES_DB=food_waste
     ports:
       - "5432:5432"
     volumes:
