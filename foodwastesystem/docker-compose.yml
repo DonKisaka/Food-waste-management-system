@@ -1,0 +1,37 @@
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: food_waste_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER:foodsystem
+      - POSTGRES_PASSWORD:foodsystempass
+      - POSTGRES_DB:food_waste
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - food-waste-network
+
+  food_waste_app:
+    build: .
+    container_name: food_waste_app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/food_waste
+      - SPRING_DATASOURCE_USERNAME=foodsystem
+      - SPRING_DATASOURCE_PASSWORD=foodsystempass
+    depends_on:
+      - postgres-db
+    networks:
+      - food-waste-network
+
+volumes:
+  postgres-data:
+
+networks:
+  food-waste-network:
+    driver: bridge
