@@ -37,7 +37,7 @@ public class CollectionCenter {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "waste_processor_id", nullable = false)
-    private WasteProcessor processor;
+    private WasteProcessor wasteProcessor;
 
 
 }
