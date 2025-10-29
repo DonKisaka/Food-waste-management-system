@@ -1,4 +1,4 @@
-package com.example.foodwastesystem.Dto;
+package com.example.foodwastesystem.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

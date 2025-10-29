@@ -1,4 +1,4 @@
-package com.example.foodwastesystem.Dto;
+package com.example.foodwastesystem.dto;
 
 public record AuthenticationResponseDto(
         String token,

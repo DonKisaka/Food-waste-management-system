@@ -1,8 +1,8 @@
 package com.example.foodwastesystem.Service;
 
-import com.example.foodwastesystem.Dto.AuthenticationResponseDto;
-import com.example.foodwastesystem.Dto.CreateUserDto;
-import com.example.foodwastesystem.Dto.LoginUserDto;
+import com.example.foodwastesystem.dto.AuthenticationResponseDto;
+import com.example.foodwastesystem.dto.CreateUserDto;
+import com.example.foodwastesystem.dto.LoginUserDto;
 import com.example.foodwastesystem.config.JwtService;
 import com.example.foodwastesystem.model.User;
 import com.example.foodwastesystem.repository.UserRepository;

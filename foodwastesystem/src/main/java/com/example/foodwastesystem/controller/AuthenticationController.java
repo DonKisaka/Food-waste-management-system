@@ -1,8 +1,8 @@
-package com.example.foodwastesystem.Controller;
+package com.example.foodwastesystem.controller;
 
-import com.example.foodwastesystem.Dto.AuthenticationResponseDto;
-import com.example.foodwastesystem.Dto.CreateUserDto;
-import com.example.foodwastesystem.Dto.LoginUserDto;
+import com.example.foodwastesystem.dto.AuthenticationResponseDto;
+import com.example.foodwastesystem.dto.CreateUserDto;
+import com.example.foodwastesystem.dto.LoginUserDto;
 import com.example.foodwastesystem.Service.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

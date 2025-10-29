@@ -1,4 +1,4 @@
-package com.example.foodwastesystem.Dto;
+package com.example.foodwastesystem.dto;
 
 import com.example.foodwastesystem.model.ProcessingStatus;
 import com.example.foodwastesystem.model.WasteType;
