@@ -5,6 +5,7 @@ import com.example.foodwastesystem.dto.CollectionCenterResponseDto;
 import com.example.foodwastesystem.model.CollectionCenter;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -22,4 +23,9 @@ public interface CollectionCenterMapper {
     CollectionCenter toEntity(CollectionCenterRequestDto collectionCenterRequestDto);
 
     List<CollectionCenterResponseDto> toDtos(List<CollectionCenter> collectionCenters);
+
+    @Mapping(target = "foodDonors", ignore = true)
+    @Mapping(target = "wasteProcessor", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    void updateCollectionCenter(CollectionCenterRequestDto dto, @MappingTarget CollectionCenter collectionCenter);
 }
