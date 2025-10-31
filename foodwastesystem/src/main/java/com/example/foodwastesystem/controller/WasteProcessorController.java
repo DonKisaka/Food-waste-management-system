@@ -64,9 +64,6 @@ public class WasteProcessorController {
         }
     }
 
-
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteWasteProcessor(@PathVariable Long id){
         wasteProcessorService.deleteWasteProcessor(id);
