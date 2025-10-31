@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/collection-centers")
 public class CollectionCenterController {
@@ -47,11 +49,21 @@ public class CollectionCenterController {
         return ResponseEntity.ok(responseDto);
     }
 
+
+
+
+
     @GetMapping
-    public ResponseEntity<CollectionCenterResponseDto> getAllCollectionCenters(){
-        CollectionCenterResponseDto responseDto = collectionCenterService.getAllCollectionCenters();
-        return ResponseEntity.ok(responseDto);
+    public ResponseEntity<List<CollectionCenterResponseDto>> getCollectionCenters(
+            @RequestParam(required = false) Long wasteProcessorId,
+            @RequestParam(required = false) String location
+    ){
+        if(wasteProcessorId != null) {
+            return ResponseEntity.ok(collectionCenterService.getByWasteProcessorId(wasteProcessorId));
+        }
+        if(location != null) {
+            return ResponseEntity.ok(collectionCenterService.getByLocation(location));
+        }
+        return ResponseEntity.ok(collectionCenterService.getAllCollectionCenters());
     }
-
-
 }
