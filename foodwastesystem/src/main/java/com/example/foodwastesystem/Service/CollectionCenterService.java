@@ -36,11 +36,10 @@ public class CollectionCenterService {
         return collectionCenterMapper.toDto(collectionCenter);
     }
 
-    public CollectionCenterResponseDto getAllCollectionCenters() {
+    public List<CollectionCenterResponseDto> getAllCollectionCenters() {
         return collectionCenterRepository.findAll().stream()
                 .map(collectionCenterMapper::toDto)
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Collection Center not found"));
+                .toList();
     }
 
     public List<CollectionCenterResponseDto> getByWasteProcessorId(Long wasteProcessorId) {
