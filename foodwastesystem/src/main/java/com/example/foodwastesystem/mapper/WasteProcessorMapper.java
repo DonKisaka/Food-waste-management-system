@@ -5,6 +5,7 @@ import com.example.foodwastesystem.dto.WasteProcessorResponseDto;
 import com.example.foodwastesystem.model.WasteProcessor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
@@ -20,4 +21,10 @@ public interface WasteProcessorMapper {
     WasteProcessor toEntity(WasteProcessorRequestDto wasteProcessorRequestDto);
 
     List<WasteProcessorResponseDto> toDtos(List<WasteProcessor> wasteProcessors);
+
+
+    @Mapping(target = "collectionCenters", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "foodWasteItems", ignore = true)
+    void updateWasteProcessor(WasteProcessorRequestDto dto, @MappingTarget WasteProcessor wasteProcessor);
 }
