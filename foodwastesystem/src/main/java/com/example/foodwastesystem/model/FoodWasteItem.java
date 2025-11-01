@@ -32,7 +32,7 @@ public class FoodWasteItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "waste_processor_id")
-    private WasteProcessor processor;
+    private WasteProcessor wasteProcessor;
 
     @Column(nullable = false)
     @Positive(message = "Weight cannot be negative")

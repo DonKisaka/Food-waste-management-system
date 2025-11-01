@@ -11,12 +11,11 @@ import java.util.List;
 public interface FoodWasteItemMapper {
 
     @Mapping(source = "foodDonor.id", target = "foodDonorId")
-    @Mapping(source = "WasteProcessor.id", target = "wasteProcessorId")
     FoodWasteItemResponseDto toDto(FoodWasteItem foodWasteItem);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "foodDonor", ignore = true)
-    @Mapping(target = "WasteProcessor", ignore = true)
+    @Mapping(target = "wasteProcessor", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(source = "wasteType", target = "wasteType")
