@@ -13,8 +13,6 @@ import java.util.List;
 public interface CollectionCenterMapper {
 
     @Mapping(source = "wasteProcessor.id", target = "wasteProcessorId")
-    @Mapping(source = "foodDonors", target = "foodDonors")
-    @Mapping(source = "wasteProcessor.name", target = "wasteProcessorName")
     CollectionCenterResponseDto toDto(CollectionCenter collectionCenter);
 
     @Mapping(target = "foodDonors", ignore = true)
