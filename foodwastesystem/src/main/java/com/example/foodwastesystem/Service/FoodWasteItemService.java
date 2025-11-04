@@ -3,8 +3,10 @@ package com.example.foodwastesystem.Service;
 import com.example.foodwastesystem.dto.FoodWasteItemRequestDto;
 import com.example.foodwastesystem.dto.FoodWasteItemResponseDto;
 import com.example.foodwastesystem.mapper.FoodWasteItemMapper;
+import com.example.foodwastesystem.model.FoodDonor;
 import com.example.foodwastesystem.model.FoodWasteItem;
 import com.example.foodwastesystem.model.WasteType;
+import com.example.foodwastesystem.repository.FoodDonorRepository;
 import com.example.foodwastesystem.repository.FoodWasteItemRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,16 +18,22 @@ public class FoodWasteItemService {
 
     private final FoodWasteItemRepository foodWasteItemRepository;
     private final FoodWasteItemMapper foodWasteItemMapper;
+    private final FoodDonorRepository foodDonorRepository;
 
-    public FoodWasteItemService(FoodWasteItemRepository foodWasteItemRepository, FoodWasteItemMapper foodWasteItemMapper) {
+    public FoodWasteItemService(FoodWasteItemRepository foodWasteItemRepository, FoodWasteItemMapper foodWasteItemMapper, FoodDonorRepository foodDonorRepository) {
         this.foodWasteItemRepository = foodWasteItemRepository;
         this.foodWasteItemMapper = foodWasteItemMapper;
+        this.foodDonorRepository = foodDonorRepository;
     }
 
     @Transactional
     public FoodWasteItemResponseDto createFoodWasteItem(FoodWasteItemRequestDto dto){
 
         FoodWasteItem foodWasteItem = foodWasteItemMapper.toEntity(dto);
+
+        FoodDonor donor = foodDonorRepository.findById(dto.foodDonorId())
+                .orElseThrow(() -> new RuntimeException("Food Donor not found with id: " + dto.foodDonorId()));
+        foodWasteItem.setFoodDonor(donor);
         FoodWasteItem savedFoodWasteItem = foodWasteItemRepository.save(foodWasteItem);
         return foodWasteItemMapper.toDto(savedFoodWasteItem);
     }

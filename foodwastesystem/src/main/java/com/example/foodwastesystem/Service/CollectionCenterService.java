@@ -4,7 +4,9 @@ import com.example.foodwastesystem.dto.CollectionCenterRequestDto;
 import com.example.foodwastesystem.dto.CollectionCenterResponseDto;
 import com.example.foodwastesystem.mapper.CollectionCenterMapper;
 import com.example.foodwastesystem.model.CollectionCenter;
+import com.example.foodwastesystem.model.WasteProcessor;
 import com.example.foodwastesystem.repository.CollectionCenterRepository;
+import com.example.foodwastesystem.repository.WasteProcessorRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,17 +17,24 @@ public class CollectionCenterService {
 
     private final CollectionCenterRepository collectionCenterRepository;
     private final CollectionCenterMapper collectionCenterMapper;
+    private final WasteProcessorRepository wasteProcessorRepository;
 
 
-    public CollectionCenterService(CollectionCenterRepository collectionCenterRepository, CollectionCenterMapper collectionCenterMapper) {
+    public CollectionCenterService(CollectionCenterRepository collectionCenterRepository, CollectionCenterMapper collectionCenterMapper, WasteProcessorRepository wasteProcessorRepository) {
         this.collectionCenterRepository = collectionCenterRepository;
         this.collectionCenterMapper = collectionCenterMapper;
+        this.wasteProcessorRepository = wasteProcessorRepository;
     }
 
     @Transactional
     public CollectionCenterResponseDto createCollection(CollectionCenterRequestDto dto) {
 
         CollectionCenter collectionCenter = collectionCenterMapper.toEntity(dto);
+
+        WasteProcessor wasteProcessor = wasteProcessorRepository.findById(dto.wasteProcessorId())
+                .orElseThrow(() -> new RuntimeException("Waste Processor not found with id: " + dto.wasteProcessorId()));
+        collectionCenter.setWasteProcessor(wasteProcessor);
+
         CollectionCenter savedCollectionCenter = collectionCenterRepository.save(collectionCenter);
         return collectionCenterMapper.toDto(savedCollectionCenter);
     }
