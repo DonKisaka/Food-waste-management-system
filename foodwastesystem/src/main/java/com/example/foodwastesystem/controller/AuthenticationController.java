@@ -21,7 +21,7 @@ public class AuthenticationController {
         this.authenticationService = authenticationService;
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<AuthenticationResponseDto> SignUp(
             @Valid @RequestBody CreateUserDto dto
     ) {
@@ -29,7 +29,7 @@ public class AuthenticationController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
-    @PostMapping
+    @PostMapping("/login")
     public ResponseEntity<AuthenticationResponseDto> authenticate(
             @Valid @RequestBody LoginUserDto dto
     ) {

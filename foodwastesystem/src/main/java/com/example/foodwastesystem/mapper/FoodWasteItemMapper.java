@@ -26,7 +26,7 @@ public interface FoodWasteItemMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "foodDonor", ignore = true)
-    @Mapping(target = "WasteProcessor", ignore = true)
+    @Mapping(target = "wasteProcessor", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     void updateFoodWasteItem(FoodWasteItemRequestDto dto, @MappingTarget FoodWasteItem foodWasteItem);

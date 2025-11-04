@@ -37,13 +37,11 @@ public class WasteProcessor {
 
     private ProcessingType processingType;
 
-    @OneToMany(mappedBy = "processor", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "waste_processor_id")
+    @OneToMany(mappedBy = "wasteProcessor", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<FoodWasteItem> foodWasteItems = new HashSet<>();
 
-    @OneToMany(mappedBy = "processor", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "waste_processor_id")
+    @OneToMany(mappedBy = "wasteProcessor", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<CollectionCenter> collectionCenters = new HashSet<>();
 

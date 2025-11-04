@@ -2,7 +2,6 @@ package com.example.foodwastesystem.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,9 +31,13 @@ public class FoodDonor {
     @Column(nullable = false, unique = true)
     private String contactInfo;
 
-    @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime registrationDate;
+
+    @PrePersist
+    protected void onCreate() {
+        registrationDate = LocalDateTime.now();
+    }
 
 
     @OneToMany(mappedBy = "foodDonor", cascade = CascadeType.ALL, orphanRemoval = true)
