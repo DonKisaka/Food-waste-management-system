@@ -33,7 +33,6 @@ public class AuthenticationService {
 
         User user = User.builder()
                 .email(dto.email())
-                .username(dto.username())
                 .password(passwordEncoder.encode(dto.password()))
                 .enabled(true)
                 .build();
@@ -42,8 +41,7 @@ public class AuthenticationService {
         String token = jwtService.generateToken(user);
         return new AuthenticationResponseDto(
                 token,
-                user.getEmail(),
-                user.getUsername()
+                user.getEmail()
         );
     }
 
@@ -61,8 +59,7 @@ public class AuthenticationService {
         String token = jwtService.generateToken(user);
         return new AuthenticationResponseDto(
                 token,
-                user.getEmail(),
-                user.getUsername()
+                user.getEmail()
         );
 
     }

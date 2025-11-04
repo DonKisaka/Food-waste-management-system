@@ -8,9 +8,6 @@ public record CreateUserDto(
         @Email(message = "Email is not valid")
         String email,
 
-        @NotBlank(message = "Username cannot be blank")
-        String username,
-
         @NotBlank(message = "Password cannot be blank")
         String password
 ) {}
