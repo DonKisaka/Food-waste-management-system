@@ -1,19 +1,27 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Button } from "./ui/button"
 
 const Navbar = () => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/foodlogo.png" alt="Logo" width={100} height={100} />
+    <nav className="w-full border-b border-gray-200 bg-white shadow-md py-2 max-md:hidden">
+      <div className="container mx-auto px-4 flex gap-10 items-center">
+        <Link href="/">
+          <Image src="/foodlogo.png" alt="Logo" width={50} height={50} />
+        </Link>
+
+        <div className="flex items-center gap-4 ml-auto">
+          <div className="flex items-center space-x-4">
+            <Link href="/signin">
+               <Button variant="outline" className="cursor-pointer hover:bg-gray-100">Sign In</Button>
             </Link>
-          </div>
-        </div>
-      </header>
-    </div>
+            <Link href="/signup">
+               <Button variant="outline" className="bg-indigo-600 text-white hover:bg-indigo-700 cursor-pointer">Sign Up</Button>
+            </Link>
+         </div>
+      </div>
+      </div> 
+    </nav>
   )
 }
 
