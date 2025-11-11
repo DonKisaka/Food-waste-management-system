@@ -1,11 +1,8 @@
 // Action Response Type for Server Actions
-export type ActionResponse<T = any> = {
+export type ActionResponse =  {
   success: boolean;
   message: string;
-  data?: T;
-  errors?: {
-    [key: string]: string[];
-  };
+  errors?: Record<string, string[]>;
   error?: string;
 };
 
@@ -18,20 +15,19 @@ export interface AuthenticationResponse {
 // User Type
 export interface User {
   id: number;
-  username: string;
   email: string;
 }
 
-// Login Request
-export interface LoginRequest {
-  username: string;
+// Signin Request
+export interface SignIn {
+  email: string;
   password: string;
 }
 
-// Register Request
-export interface RegisterRequest {
-  username: string;
+// Signup Request
+export interface Signup {
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
