@@ -10,7 +10,8 @@ export interface FoodDonor {
 export interface CollectionCenter {
   id: number;
   location: string;
-  maxCapacity: number;
+  maximumCapacityKg: number;
+  wasteProcessorId: number;
 }
 
 export interface WasteProcessor {
