@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/form'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
-import {signIn} from '@/actions/auth'
+import {signIn} from '@/app/actions/auth'
 import {ActionResponse} from '@/lib/types/auth'
 
 const initialState: ActionResponse = {
