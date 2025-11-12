@@ -39,7 +39,7 @@ export const signIn = async (formData: FormData): Promise<ActionResponse> => {
     );
 
     if (response.data.token) {
-      await createSession(response.data.token, response.data.expiresIn || 3600);
+      await createSession(response.data.token, 86400);
     }
 
     return {
@@ -89,7 +89,7 @@ export const signUp = async (formData: FormData): Promise<ActionResponse> => {
     );
 
     if (response.data.token) {
-      await createSession(response.data.token, response.data.expiresIn || 3600);
+      await createSession(response.data.token, 86400);
     }
 
     return {
