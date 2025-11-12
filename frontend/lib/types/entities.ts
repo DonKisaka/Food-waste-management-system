@@ -1,10 +1,10 @@
-// All entity types in one simple file
 
 export interface FoodDonor {
   id: number;
   name: string;
   address: string;
   contactInfo: string;
+  registrationDate?: string; 
 }
 
 export interface CollectionCenter {
