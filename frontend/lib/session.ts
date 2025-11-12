@@ -3,10 +3,7 @@
 import { cookies } from 'next/headers';
 import { TOKEN_KEY, TOKEN_EXPIRY_KEY } from './utils/constants';
 
-/**
- * Creates a secure session by setting httpOnly cookies
- * This can only be called from Server Actions or API Routes
- */
+
 export async function createSession(token: string, expiresIn: number): Promise<void> {
   const expiryTime = Date.now() + expiresIn * 1000;
 
@@ -30,10 +27,7 @@ export async function createSession(token: string, expiresIn: number): Promise<v
   });
 }
 
-/**
- * Gets the current session token
- * Returns null if token is expired or doesn't exist
- */
+
 export async function getSession(): Promise<string | null> {
   const cookieStore = await cookies()
   const token = cookieStore.get(TOKEN_KEY)?.value;
@@ -52,17 +46,13 @@ export async function getSession(): Promise<string | null> {
   return token;
 }
 
-/**
- * Deletes the session by removing cookies
- */
+
 export async function deleteSession() {
   const cookieStore = await cookies()
   cookieStore.delete(TOKEN_KEY);
 }
 
-/**
- * Checks if user is authenticated
- */
+
 export async function isAuthenticated() {
   const token = await getSession();
   return token !== null;
