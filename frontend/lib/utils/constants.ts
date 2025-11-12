@@ -1,10 +1,8 @@
-// API Configuration
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// API Endpoints - Must match Spring Boot backend exactly
 export const API_ENDPOINTS = {
   AUTH: {
-    SIGNIN: '/api/v1/auth/login',  // Backend uses "login" not "signin"
+    SIGNIN: '/api/v1/auth/login',  
     SIGNUP: '/api/v1/auth/signup',  
     ME: '/api/v1/auth/me',
   },
@@ -14,11 +12,9 @@ export const API_ENDPOINTS = {
   FOOD_WASTE_ITEMS: '/api/v1/food-waste-item',    
 } as const;
 
-// Cookie & Session Keys
 export const TOKEN_KEY = 'auth_token';
 export const TOKEN_EXPIRY_KEY = 'token_expiry';
 
-// Enum Labels
 export const WASTE_TYPE_LABELS = {
   VEGETABLES: 'Vegetables',
   DAIRY: 'Dairy',
