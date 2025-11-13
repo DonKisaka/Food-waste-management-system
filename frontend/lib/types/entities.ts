@@ -18,15 +18,15 @@ export interface WasteProcessor {
   id: number;
   name: string;
   location: string;
-  maxProcessingCapacity: number;
+  maximumProcessingCapacityKg: number;
   processingType: string;
 }
 
 export interface FoodWasteItem {
   id: number;
-  weight: number;
+  weightKg: number;
   expirationDate: string;
   wasteType: string;
   status: string;
-  donorId: number;
+  foodDonorId: number;
 }
