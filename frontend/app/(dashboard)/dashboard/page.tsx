@@ -21,7 +21,7 @@ export default function DashboardPage() {
       color: 'bg-green-500',
       lightColor: 'bg-green-50',
       textColor: 'text-green-600',
-      available: false,
+      available: true,
     },
     {
       title: 'Waste Processors',
@@ -31,7 +31,7 @@ export default function DashboardPage() {
       color: 'bg-purple-500',
       lightColor: 'bg-purple-50',
       textColor: 'text-purple-600',
-      available: false,
+      available: true,
     },
     {
       title: 'Food Waste Items',
@@ -41,7 +41,7 @@ export default function DashboardPage() {
       color: 'bg-orange-500',
       lightColor: 'bg-orange-50',
       textColor: 'text-orange-600',
-      available: false,
+      available: true,
     },
   ];
 
