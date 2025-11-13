@@ -17,11 +17,11 @@ export const TOKEN_EXPIRY_KEY = 'token_expiry';
 
 export const WASTE_TYPE_LABELS = {
   VEGETABLES: 'Vegetables',
+  FRUITS: 'Fruits',
+  MEAT: 'Meat',
   DAIRY: 'Dairy',
   GRAINS: 'Grains',
-  MEAT: 'Meat',
-  FRUITS: 'Fruits',
-  OTHER: 'Other',
+  OTHERS: 'Others',
 } as const;
 
 export const PROCESSING_STATUS_LABELS = {
