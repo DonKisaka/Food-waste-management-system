@@ -59,11 +59,7 @@ export async function isAuthenticated() {
   return token !== null;
 }
 
-/**
- * Decodes JWT token and extracts user email
- * JWT format: header.payload.signature
- * Payload contains the subject (email) as 'sub'
- */
+
 export async function getCurrentUser(): Promise<{ email: string } | null> {
   const token = await getSession();
   if (!token) {
@@ -71,20 +67,16 @@ export async function getCurrentUser(): Promise<{ email: string } | null> {
   }
 
   try {
-    // JWT tokens have 3 parts separated by dots
     const parts = token.split('.');
     if (parts.length !== 3) {
       return null;
     }
 
-    // Decode the payload (second part)
     const payload = parts[1];
-    // Add padding if needed for base64 decoding
     const paddedPayload = payload + '='.repeat((4 - (payload.length % 4)) % 4);
     const decodedPayload = Buffer.from(paddedPayload, 'base64').toString('utf-8');
     const claims = JSON.parse(decodedPayload);
 
-    // The 'sub' field contains the email (username)
     const email = claims.sub || claims.email;
     if (!email) {
       return null;
