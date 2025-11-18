@@ -30,6 +30,7 @@ const SignUpPage = () => {
       if (result.success) {
         toast.success('Signed up successfully')
         router.push('/dashboard')
+        router.refresh()
       }
 
       return result
