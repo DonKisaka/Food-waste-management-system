@@ -120,7 +120,7 @@ const SignUpPage = () => {
               </FormGroup>
 
               <div>
-                <Button type="submit" className="w-full" isLoading={isPending}>
+                <Button variant='outline' type="submit" className="w-full  hover:bg-gray-100 cursor-pointer" isLoading={isPending}>
                   Sign up
                 </Button>
               </div>

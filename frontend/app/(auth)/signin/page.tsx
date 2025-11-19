@@ -102,7 +102,7 @@ const SignInPage = () => {
           </FormGroup>
 
           <div>
-            <Button variant='outline' type='submit' disabled={isPending} className='w-full hover:bg-gray-100'>
+            <Button variant='outline' type='submit' disabled={isPending} className='w-full hover:bg-gray-100 cursor-pointer'>
               Sign in
             </Button>
           </div>
