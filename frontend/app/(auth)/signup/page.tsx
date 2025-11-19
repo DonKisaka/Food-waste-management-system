@@ -72,7 +72,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="email-error"
-                  className={state?.errors?.email ? 'border-red-500' : 'border-gray-300'}
+                  className={state?.errors?.email ? 'border-red-500' : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full hover:bg-gray-100 cursor-pointer'}
                 />
                 {state?.errors?.email && (
                   <p id="email-error" className="text-sm text-red-500">
@@ -91,7 +91,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="password-error"
-                  className={state?.errors?.password ? 'border-red-500' : 'border-gray-300'}
+                  className={state?.errors?.password ? 'border-red-500' : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full hover:bg-gray-100 cursor-pointer'}
                 />
                 {state?.errors?.password && (
                   <p id="password-error" className="text-sm text-red-500">
@@ -110,7 +110,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="confirmPassword-error"
-                  className={state?.errors?.confirmPassword ? 'border-red-500' : 'border-gray-300'}
+                  className={state?.errors?.confirmPassword ? 'border-red-500' : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full hover:bg-gray-100 cursor-pointer'}
                 />
                 {state?.errors?.confirmPassword && (
                   <p id="confirmPassword-error" className="text-sm text-red-500">

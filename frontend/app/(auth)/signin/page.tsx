@@ -75,7 +75,7 @@ const SignInPage = () => {
                required
                disabled={isPending}
                aria-describedby='email-error'
-               className={state?.errors?.email ? 'border-red-500' : 'border-gray-300'} />
+               className={state?.errors?.email ? 'border-red-500' : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full hover:bg-gray-100 cursor-pointer'} />
                {state?.errors?.email && (
                 <p id='email-error' className='text-red-500 text-sm'>
                   {state.errors.email[0]}
@@ -93,7 +93,7 @@ const SignInPage = () => {
                required
                disabled={isPending}
                aria-describedby='password-error'
-               className={state?.errors?.password ? 'border-red-500' : 'border-gray-300 '} />
+               className={state?.errors?.password ? 'border-red-500' : 'border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full hover:bg-gray-100 cursor-pointer'} />
                {state?.errors?.password && (
                 <p id='password-error' className='text-red-500 text-sm'>
                   {state.errors.password[0]}
