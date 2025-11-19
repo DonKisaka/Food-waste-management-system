@@ -72,7 +72,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="email-error"
-                  className={state?.errors?.email ? 'border-red-500' : ''}
+                  className={state?.errors?.email ? 'border-red-500' : 'border-gray-300'}
                 />
                 {state?.errors?.email && (
                   <p id="email-error" className="text-sm text-red-500">
@@ -91,7 +91,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="password-error"
-                  className={state?.errors?.password ? 'border-red-500' : ''}
+                  className={state?.errors?.password ? 'border-red-500' : 'border-gray-300'}
                 />
                 {state?.errors?.password && (
                   <p id="password-error" className="text-sm text-red-500">
@@ -110,7 +110,7 @@ const SignUpPage = () => {
                   required
                   disabled={isPending}
                   aria-describedby="confirmPassword-error"
-                  className={state?.errors?.confirmPassword ? 'border-red-500' : ''}
+                  className={state?.errors?.confirmPassword ? 'border-red-500' : 'border-gray-300'}
                 />
                 {state?.errors?.confirmPassword && (
                   <p id="confirmPassword-error" className="text-sm text-red-500">
