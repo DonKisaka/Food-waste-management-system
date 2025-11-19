@@ -39,7 +39,6 @@ export const signIn = async (formData: FormData): Promise<ActionResponse> => {
     );
 
     if (response.data.token) {
-      // Delete old session before creating new one
       await deleteSession();
       await createSession(response.data.token, 86400);
     }
@@ -91,7 +90,6 @@ export const signUp = async (formData: FormData): Promise<ActionResponse> => {
     );
 
     if (response.data.token) {
-      // Delete old session before creating new one
       await deleteSession();
       await createSession(response.data.token, 86400);
     }
