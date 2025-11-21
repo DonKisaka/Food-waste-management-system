@@ -7,6 +7,7 @@ import com.example.foodwastesystem.Service.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,11 @@ public class AuthenticationController {
 
     public AuthenticationController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("Food Waste System API is running!");
     }
 
     @PostMapping("/signup")
